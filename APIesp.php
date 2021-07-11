@@ -1,6 +1,7 @@
 <?php
 
 include 'helper.php';
+
 date_default_timezone_set('Asia/Jakarta');
 $hari = date("d-m-Yd");
 $jam = date('H:i:s a');
@@ -16,7 +17,8 @@ $plat = array( 1 => "BL 1234 A","BL 1234 B","BL 1234 C","BL 1234 D","BL 1234 E")
 if ($nama[1] == $nama[1]) {	// data_rfid1 = krtu 1
 	//	INSERT($nama, $nim, $merk, $plat, $jam, $hari)
 	INSERT($nama[1], $nim[1], $merk[1], $plat[1], $jam, $hari);
-	
+	mysql_query(INSERT(sql));
+
 	
 }
 	// PRINT Kelmpok B

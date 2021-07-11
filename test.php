@@ -8,10 +8,10 @@ $db	= "test";
 $koneksi = mysqli_connect('localhost', $username, $password, $db);
 
 
-// mengecek koneksi
-// if (!$koneksi) {
-//     die("Koneksi gagal: " . mysqli_connect_error());
-// }
-// echo "Koneksi berhasil";
-// mysqli_close($koneksi);
+//mengecek koneksi
+if (!$koneksi) {
+    die("Koneksi gagal: " . mysqli_connect_error());
+}
+echo "Koneksi berhasil";
+mysqli_close($koneksi);
 ?>

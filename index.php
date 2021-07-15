@@ -276,12 +276,12 @@
 								<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 									<thead>
 										<tr>
-											<th>Name</th>
-											<th>Position</th>
-											<th>Office</th>
-											<th>Age</th>
-											<th>Start date</th>
-											<th>Salary</th>
+											<th>nama</th>
+											<th>Nim</th>
+											<th>Merek</th>
+											<th>Plat</th>
+											<th>Jam</th>
+											<th>Tanggal</th>
 										</tr>
 									</thead>
 									<!-- <tfoot>
@@ -298,39 +298,22 @@
 										<?php
 										require 'test.php';
 										if (isset($_POST['cek'])) {
-											$tanggal = $_POST['tanggal'];
-
-											$query = mysqli_query($conn, "SELECT * FROM masuk WHERE tanggal='$tanggal' AND status='masuk'");
-											$check = mysqli_fetch_assoc($query);
+											$tanggal = $_GET['tanggal'];
+											$query = mysqli_query($conn, "SELECT * FROM masuk WHERE tanggal='$tanggal' AND status='masuk' ");
+										} else {
+											$query = mysqli_query($conn, "SELECT * FROM masuk");
 										}
 
-
-
-										if (isset($check)) {
-										?>
+										while ($row = mysqli_fetch_assoc($query)) { ?>
 											<tr>
-												<td>Tiger Nixon</td>
-												<td>System Architect</td>
-												<td>Edinburgh</td>
-												<td>61</td>
-												<td>2011/04/25</td>
-												<td>$320,800</td>
+												<td><?= $row['nama'] ?></td>
+												<td><?= $row['nim'] ?></td>
+												<td><?= $row['merk'] ?></td>
+												<td><?= $row['plat'] ?></td>
+												<td><?= $row['jam'] ?></td>
+												<td><?= $row['tanggal'] ?></td>
 											</tr>
-
-											<?php } else {
-											$a = mysqli_query($conn, "SELECT * FROM masuk");
-											while ($row = mysqli_fetch_assoc($a)) { ?>
-												<tr>
-													<td>Tiger Nixon</td>
-													<td>System Architect</td>
-													<td>Edinburgh</td>
-													<td>61</td>
-													<td>2011/04/25</td>
-													<td>$320,800</td>
-												</tr>
-										<?php }
-										}
-										?>
+										<?php	} ?>
 									</tbody>
 								</table>
 							</div>

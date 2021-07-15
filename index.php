@@ -9,21 +9,27 @@ include 'test.php';
 		<th>No</th>
 	    <th>Nama</th>
 	    <th>Nim</th>
+	    <th>Merk</th>
 	    <th>Plat</th>
-	    <th>jam</th>
+	    <th>Jam</th>
+	    <th>Tanggal</th>
+	    <th>Status</th>
 	</tr>
 	    <?php
 	    include 'test.php';
 	    $no=1;
-	    $data = mysqli_query($koneksi,"select * from masuk");
+	    $data = mysqli_query($conn,"select * from masuk");
 	    while ($tampil = mysqli_fetch_array($data)) {
 	    	echo "
 	    	<tr>
 	    		<td>$no</td>
 	    		<td>$tampil[nama]</td>
 	    		<td>$tampil[nim]</td>
+	    		<td>$tampil[merk]</td>
 	    		<td>$tampil[plat]</td>
+	    		<td>$tampil[jam]</td>
 	    		<td>$tampil[tanggal]</td>
+	    		<td>$tampil[status]</td>
 	    	</tr>";
 	    	$no++;
 	    }

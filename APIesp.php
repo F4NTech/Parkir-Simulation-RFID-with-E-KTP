@@ -18,7 +18,11 @@ $status = array(1 => "masuk", "keluar");
 INSERT_OUT ($nama[1], $nim[4], $merk[1], $plat[1], $jam, $tanggal, $status[2]);
 
 if ($nama[1] == $nama[1]) {	// data_rfid1 = krtu 1
+<<<<<<< HEAD
 	//
+=======
+	INSERT($nama[1], $nim[1], $merk[1], $plat[1], $jam, $tanggal, $status[1]);
+>>>>>>> 6318d8c1d33db7cc416a7988d3746d1906dc6c09
 }
 
 

@@ -1,28 +1,21 @@
 <?php
 
-include 'helper.php';
+include 'input.php';
 
 date_default_timezone_set('Asia/Jakarta');
 $tanggal = date("d-m-Yd");
 $jam = date('H:i:s a');
 //DATA KARTU
-$nama = array(1 => "Kartu AA", "Kartu BB", "Kartu CC", "Kartu DD", "Kartu EE");
-$nim = array(1 => "1234 A", "1234 B", "1234 C", "1234 D", "1234 E");
-$merk = array(1 => "Mobil AA", "Mobil BB", "Mobil CC", "Mobil DD", "Mobil EE");
-$plat = array(1 => "BL 1234 A", "BL 1234 B", "BL 1234 C", "BL 1234 D", "BL 1234 E");
+$nama = array(1 => "FARHAN", "JULIAN", "Ibnu", "IKRAM", "Kharazzi");
+$nim = array(1 => "1820401003", "1820401000", "1820401025", "18204011", "1820401006");
+$merk = array(1 => "Avanza", "Kijang", "BMW", "Motor Aza", "Skate");
+$plat = array(1 => "BL 1234 GG", "BL 1234 DL", "BL 1234 XI", "BL 1234 HM", "BL 1234 XX");
 $status = array(1 => "masuk", "keluar");
-
 
 #===== MASUK =====#
 //Print Kelompok A
-INSERT_OUT ($nama[1], $nim[4], $merk[1], $plat[1], $jam, $tanggal, $status[2]);
-
-if ($nama[1] == $nama[1]) {	// data_rfid1 = krtu 1
-<<<<<<< HEAD
-	//
-=======
-	INSERT($nama[1], $nim[1], $merk[1], $plat[1], $jam, $tanggal, $status[1]);
->>>>>>> 6318d8c1d33db7cc416a7988d3746d1906dc6c09
+if ($nama[3] = "Ibnu") {	// data_rfid1 = krtu 1
+	AUTOINSERT($nama[3], $nim[3], $merk[3], $plat[3], $jam, $tanggal, $status[2]);
 }
 
 

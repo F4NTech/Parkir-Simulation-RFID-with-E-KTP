@@ -3,7 +3,7 @@
 include 'input.php';
 
 date_default_timezone_set('Asia/Jakarta');
-$tanggal = date("d-m-Yd");
+$tanggal = date("d-m-Y");
 $jam = date('H:i:s a');
 //DATA KARTU
 $nama = array(1 => "FARHAN", "JULIAN", "Ibnu", "IKRAM", "Kharazzi");
@@ -14,8 +14,8 @@ $status = array(1 => "masuk", "keluar");
 
 #===== MASUK =====#
 //Print Kelompok A
-if ($nama[3] = "Ibnu") {	// data_rfid1 = krtu 1
-	AUTOINSERT($nama[3], $nim[3], $merk[3], $plat[3], $jam, $tanggal, $status[2]);
+if ($nama[5]) {	// data_rfid1 = krtu 1
+	AUTOINSERT($nama[5], $nim[5], $merk[5], $plat[5], $jam, $tanggal, $status[1]);
 }
 
 

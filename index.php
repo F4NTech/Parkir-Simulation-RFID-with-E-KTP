@@ -9,7 +9,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>SB Admin 2 - Tables</title>
+	<title>List data Parkiran - JULIAN Ferdiansyah</title>
 
 	<!-- Custom fonts for this template -->
 	<link href="admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -40,7 +40,7 @@
 				<div class="sidebar-brand-icon rotate-n-15">
 					<i class="fas fa-laugh-wink"></i>
 				</div>
-				<div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+				<div class="sidebar-brand-text mx-3">JULIAN FERDIANSYAH <sup></sup></div>
 			</a>
 
 			<!-- Divider -->
@@ -48,7 +48,7 @@
 
 			<!-- Nav Item - Dashboard -->
 			<li class="nav-item">
-				<a class="nav-link" href="index.html">
+				<a class="nav-link" href="index.php">
 					<i class="fas fa-fw fa-tachometer-alt"></i>
 					<span>Dashboard</span></a>
 			</li>
@@ -225,7 +225,7 @@
 						<!-- Nav Item - User Information -->
 						<li class="nav-item dropdown no-arrow">
 							<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+								<span class="mr-2 d-none d-lg-inline text-gray-600 small">Julian Ferdiansyah</span>
 								<img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
 							</a>
 							<!-- Dropdown - User Information -->
@@ -259,7 +259,7 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-2 text-gray-800">Tables</h1>
+					<h1 class="h3 mb-2 text-gray-800">Pilih Hari</h1>
 
 					<form action="" method="post">
 						<input type="date" name="tanggal" class="mb-4">
@@ -269,19 +269,20 @@
 					<!-- DataTales Example -->
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
-							<h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+							<h6 class="m-0 font-weight-bold text-primary">Data perHari</h6>
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
 								<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 									<thead>
-										<tr>
+										<tr><th>ID</th>
 											<th>nama</th>
 											<th>Nim</th>
 											<th>Merek</th>
 											<th>Plat</th>
 											<th>Jam</th>
 											<th>Tanggal</th>
+											<th>Status</th>
 										</tr>
 									</thead>
 									<!-- <tfoot>
@@ -296,8 +297,8 @@
 									</tfoot> -->
 									<tbody>
 										<?php
-										require 'test.php';
-										if (isset($_POST['cek'])) {
+										include 'test.php';
+										if (isset($_GET['cek'])) {
 											$tanggal = $_GET['tanggal'];
 											$query = mysqli_query($conn, "SELECT * FROM masuk WHERE tanggal='$tanggal' AND status='masuk' ");
 										} else {
@@ -306,12 +307,14 @@
 
 										while ($row = mysqli_fetch_assoc($query)) { ?>
 											<tr>
+												<td><?= $row['id'] ?></td>
 												<td><?= $row['nama'] ?></td>
 												<td><?= $row['nim'] ?></td>
 												<td><?= $row['merk'] ?></td>
 												<td><?= $row['plat'] ?></td>
 												<td><?= $row['jam'] ?></td>
 												<td><?= $row['tanggal'] ?></td>
+												<td><?= $row['status'] ?></td>
 											</tr>
 										<?php	} ?>
 									</tbody>

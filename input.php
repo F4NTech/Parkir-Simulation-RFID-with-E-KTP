@@ -21,7 +21,7 @@ global $conn;
 	$check = mysqli_fetch_assoc($query);
 	if ($status == "masuk") {
 		if ($check["status"] == "masuk") {
-		echo "Status absen hari ini";
+		echo "Tidak bisa Masuk ! Status masih berada didalam";
 		} else {
 			$sql = mysqli_query($conn, "INSERT INTO 
 				masuk(nama, nim, merk, plat, jam, tanggal, status) 
@@ -30,7 +30,7 @@ global $conn;
 							");
 			var_dump($sql);
 			if ($sql) {
-				echo "New record " . $nama . " sukses";
+				echo "Detected : " .$nama. " New Status : Masuk";
 				echo " " . $jam;
 				//Hidupkan Lampu ijo
 			} else {
@@ -39,8 +39,8 @@ global $conn;
 		}
 	}
 	else if($status == "keluar"){
-		if ($check["status"] == "keluar") {
-		echo "Tidak bisa Keluar. Status Sudah Keluar sebelumnya !";
+		if ($check["status"] == "keluar" OR $check["status"] = is_null("status")) {
+		echo "Tidak bisa Keluar. Status Sudah Keluar / Belum memasuki Area.";
 	} else {
 		$sql = mysqli_query($conn, "INSERT INTO 
 			masuk(nama, nim, merk, plat, jam, tanggal, status) 

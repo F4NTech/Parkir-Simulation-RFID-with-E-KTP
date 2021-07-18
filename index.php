@@ -275,7 +275,8 @@
 							<div class="table-responsive">
 								<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 									<thead>
-										<tr><th>ID</th>
+										<tr>
+											<th>ID</th>
 											<th>nama</th>
 											<th>Nim</th>
 											<th>Merek</th>
@@ -298,16 +299,32 @@
 									<tbody>
 										<?php
 										include 'test.php';
-										if (isset($_GET['cek'])) {
-											$tanggal = $_GET['tanggal'];
+										if (isset($_POST['cek'])) {
+											$tanggal = date("d-m-Y", strtotime($_POST['tanggal']));
+
 											$query = mysqli_query($conn, "SELECT * FROM masuk WHERE tanggal='$tanggal' AND status='masuk' ");
 										} else {
-											$query = mysqli_query($conn, "SELECT * FROM masuk");
-										}
+											$ambil_tanggal_pertama = mysqli_query($conn, "SELECT tanggal FROM masuk WHERE status='masuk' ORDER BY id ASC LIMIT 1");
 
+
+											while ($v = mysqli_fetch_assoc($ambil_tanggal_pertama)) {
+												$tanggal_pertama = $v['tanggal'];
+											}
+											$minggu_lalu = date_create($tanggal_pertama);
+											$minggu_sekarang = date_create(date('d-m-Y'));
+											$reset = date_diff($minggu_lalu, $minggu_sekarang);
+											var_dump($reset->format("%a") == 7);
+											if ($reset->format("%a") == 7) {
+												$deleteData = mysqli_query($conn, "DELETE FROM `masuk`");
+												var_dump($deleteData);
+											}
+											$tanggal = date('d-m-Y');
+											$query = mysqli_query($conn, "SELECT * FROM masuk WHERE tanggal='$tanggal' AND status='masuk'");
+										}
+										$id = 1;
 										while ($row = mysqli_fetch_assoc($query)) { ?>
 											<tr>
-												<td><?= $row['id'] ?></td>
+												<td><?= $id++ ?></td>
 												<td><?= $row['nama'] ?></td>
 												<td><?= $row['nim'] ?></td>
 												<td><?= $row['merk'] ?></td>
